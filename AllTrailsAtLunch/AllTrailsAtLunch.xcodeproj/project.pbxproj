@@ -12,6 +12,8 @@
 		D26B5A8F258974470089C8DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D26B5A8E258974470089C8DE /* Assets.xcassets */; };
 		D26B5A92258974470089C8DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D26B5A90258974470089C8DE /* LaunchScreen.storyboard */; };
 		D26B5AA0258974950089C8DE /* RestaurantListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26B5A9F258974950089C8DE /* RestaurantListViewController.swift */; };
+		D26B5AAD25897AFB0089C8DE /* AllTrailsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26B5AAC25897AFB0089C8DE /* AllTrailsHeaderView.swift */; };
+		D26B5AB025897F3F0089C8DE /* PaddedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26B5AAF25897F3E0089C8DE /* PaddedTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		D26B5A91258974470089C8DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D26B5A93258974470089C8DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D26B5A9F258974950089C8DE /* RestaurantListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListViewController.swift; sourceTree = "<group>"; };
+		D26B5AAC25897AFB0089C8DE /* AllTrailsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTrailsHeaderView.swift; sourceTree = "<group>"; };
+		D26B5AAF25897F3E0089C8DE /* PaddedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddedTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,8 @@
 		D26B5AA42589749E0089C8DE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D26B5AAC25897AFB0089C8DE /* AllTrailsHeaderView.swift */,
+				D26B5AAF25897F3E0089C8DE /* PaddedTextField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -173,6 +179,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D26B5AAD25897AFB0089C8DE /* AllTrailsHeaderView.swift in Sources */,
+				D26B5AB025897F3F0089C8DE /* PaddedTextField.swift in Sources */,
 				D26B5A86258974440089C8DE /* AppDelegate.swift in Sources */,
 				D26B5AA0258974950089C8DE /* RestaurantListViewController.swift in Sources */,
 				D26B5A88258974440089C8DE /* SceneDelegate.swift in Sources */,
