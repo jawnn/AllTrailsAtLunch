@@ -58,7 +58,7 @@ class AllTrailsHeaderView: UIView {
         
         let button = UIButton()
         button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 8)
-        button.imageView?.tintColor = UIColor(named: "AllTrailsGreen")
+        button.imageView?.tintColor = UIColor(named: "allTrailsGreen")
         button.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
         button.addTarget(self, action: #selector(tappedSearch), for: .touchUpInside)
         textField.rightView = button
