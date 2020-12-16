@@ -2,12 +2,16 @@ import UIKit
 
 class RestaurantListViewController: UIViewController {
 
+    private weak var headerView: AllTrailsHeaderView!
     private weak var tableView: UITableView!
     private weak var transitionViewLayoutButton: UIButton!
 
     override func loadView() {
         super.loadView()
 
+        let headerView = AllTrailsHeaderView(frame: .zero)
+        view.addSubview(headerView)
+      
         let tableView = UITableView(frame: .zero)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
@@ -17,9 +21,13 @@ class RestaurantListViewController: UIViewController {
         view.addSubview(button)
 
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            headerView.topAnchor.constraint(equalTo: view.topAnchor),
+            headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+          
+            tableView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 12),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
 
             button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -28,6 +36,7 @@ class RestaurantListViewController: UIViewController {
             button.heightAnchor.constraint(equalToConstant: 42)
         ])
 
+        self.headerView = headerView
         self.tableView = tableView
         self.transitionViewLayoutButton = button
     }
