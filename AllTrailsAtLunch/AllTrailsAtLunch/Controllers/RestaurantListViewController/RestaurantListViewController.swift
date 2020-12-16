@@ -51,6 +51,8 @@ class RestaurantListViewController: UIViewController {
     private func configureRestaurantTableView() {
         tableView.backgroundColor = UIColor(named: "backgroundGray")
         tableView.separatorStyle = .none
+        tableView.dataSource = self
+        tableView.register(RestaurantTableCell.self, forCellReuseIdentifier: String(describing: RestaurantTableCell.self))
     }
 
     private func configureBottomButton() {
@@ -65,4 +67,17 @@ class RestaurantListViewController: UIViewController {
         transitionViewLayoutButton.setTitleColor(.white, for: .normal)
     }
 
+}
+
+extension RestaurantListViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: RestaurantTableCell.self)) as? RestaurantTableCell else {
+            return UITableViewCell()
+        }
+        return cell
+    }
 }
