@@ -10,8 +10,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return
         }
         let window = UIWindow(windowScene: windowScene)
-        let viewController = RestaurantListViewController()
-        window.rootViewController = viewController
+
+        let rootViewController: RestaurantListViewController = {
+            let viewController = RestaurantListViewController()
+            let presenter = RestaurantListPresenter(view: viewController)
+            viewController.presenter = presenter
+            return viewController
+        }()
+
+        window.rootViewController = rootViewController
         window.makeKeyAndVisible()
         self.window = window
     }

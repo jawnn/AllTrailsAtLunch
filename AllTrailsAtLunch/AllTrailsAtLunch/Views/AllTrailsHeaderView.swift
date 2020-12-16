@@ -41,8 +41,8 @@ class AllTrailsHeaderView: UIView {
 
         button.layer.cornerRadius = 5
         button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.systemGray3.cgColor
-        button.setTitleColor(.systemGray2, for: .normal)
+        button.layer.borderColor = UIColor.systemGray4.cgColor
+        button.setTitleColor(.systemGray, for: .normal)
         button.setAttributedTitle(buttonTitle, for: .normal)
         return button
     }()
@@ -80,6 +80,13 @@ class AllTrailsHeaderView: UIView {
     private func configureSelf() {
         backgroundColor = .white
         translatesAutoresizingMaskIntoConstraints = false
+
+        applyShadow(
+            shadowRadius: 4,
+            shadowOpacity: 0.3,
+            shadowColor: UIColor.systemGray2.cgColor,
+            offSet: CGSize(width: 0 , height:2)
+        )
     }
 
     private func configureSubviews() {
