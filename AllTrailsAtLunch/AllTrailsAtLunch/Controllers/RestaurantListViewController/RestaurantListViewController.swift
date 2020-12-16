@@ -6,6 +6,8 @@ class RestaurantListViewController: UIViewController {
     private weak var tableView: UITableView!
     private weak var transitionViewLayoutButton: UIButton!
 
+    var presenter: RestaurantListPresenterType!
+
     override func loadView() {
         super.loadView()
 
@@ -44,14 +46,16 @@ class RestaurantListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.backgroundColor = UIColor(named: "rootBackgroundGray")
         configureRestaurantTableView()
         configureBottomButton()
     }
 
     private func configureRestaurantTableView() {
-        tableView.backgroundColor = UIColor(named: "backgroundGray")
+        tableView.backgroundColor = UIColor(named: "rootBackgroundGray")
         tableView.separatorStyle = .none
-        tableView.dataSource = self
+        tableView.dataSource = presenter
+        tableView.delegate = self
         tableView.register(RestaurantTableCell.self, forCellReuseIdentifier: String(describing: RestaurantTableCell.self))
     }
 
@@ -69,15 +73,10 @@ class RestaurantListViewController: UIViewController {
 
 }
 
-extension RestaurantListViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
+extension RestaurantListViewController: UITableViewDelegate {
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: RestaurantTableCell.self)) as? RestaurantTableCell else {
-            return UITableViewCell()
-        }
-        return cell
-    }
+}
+
+extension RestaurantListViewController: RestaurantListViewType {
+    
 }

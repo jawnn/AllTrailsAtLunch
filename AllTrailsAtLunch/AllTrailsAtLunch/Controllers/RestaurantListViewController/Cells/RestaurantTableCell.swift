@@ -7,15 +7,15 @@ class RestaurantTableCell: UITableViewCell {
         view.backgroundColor = .white
 
         view.layer.borderWidth = 1
-        view.layer.borderColor = UIColor.systemGray.cgColor
+        view.layer.borderColor = UIColor.systemGray4.cgColor
         view.layer.cornerRadius = 5
 
-        view.layer.masksToBounds = false
-        view.layer.shadowRadius = 4
-        view.layer.shadowOpacity = 0.5
-        view.layer.shadowColor = UIColor.systemGray2.cgColor
-        view.layer.shadowOffset = CGSize(width: 0 , height:2)
-
+        view.applyShadow(
+            shadowRadius: 4,
+            shadowOpacity: 0.1,
+            shadowColor: UIColor.systemGray2.cgColor,
+            offSet: CGSize(width: 0 , height:2)
+        )
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -23,7 +23,6 @@ class RestaurantTableCell: UITableViewCell {
     let restaurantImage: UIImageView = {
         let imageView = UIImageView(frame: .zero)
         imageView.image = .checkmark
-        imageView.backgroundColor = .yellow
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -33,7 +32,6 @@ class RestaurantTableCell: UITableViewCell {
         label.text = "Restaurant Name"
         label.textColor = .darkGray
         label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
-        label.backgroundColor = .yellow
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -58,7 +56,6 @@ class RestaurantTableCell: UITableViewCell {
         button.imageView?.tintColor = .systemGray2
         button.setImage(UIImage(systemName: "heart"), for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
-        button.backgroundColor = .yellow
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -66,6 +63,7 @@ class RestaurantTableCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: String(describing: RestaurantTableCell.self))
 
+        contentView.backgroundColor = UIColor(named: "rootBackgroundGray")
         addSubviewsToCell()
         configureConstraints()
     }
