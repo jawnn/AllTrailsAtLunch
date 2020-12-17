@@ -5,10 +5,11 @@ class RestaurantListViewController: UIViewController {
 
     private weak var headerView: AllTrailsHeaderView!
     private weak var tableView: UITableView!
-    private weak var transitionViewLayoutButton: UIButton!
+    private weak var transitionViewLayoutButton: TransitionViewLayoutButton!
 
     let locationManager = CLLocationManager()
     var presenter: RestaurantListPresenterType!
+    var router: RestaurantListRouterType!
 
     override func loadView() {
         super.loadView()
@@ -20,7 +21,7 @@ class RestaurantListViewController: UIViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
 
-        let button = UIButton(frame: .zero)
+        let button = TransitionViewLayoutButton(frame: .zero)
         button.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(button)
 
@@ -63,15 +64,11 @@ class RestaurantListViewController: UIViewController {
     }
 
     private func configureBottomButton() {
-        transitionViewLayoutButton.backgroundColor = UIColor(named: "allTrailsGreen")
-        transitionViewLayoutButton.layer.cornerRadius = 10
-        transitionViewLayoutButton.setImage(UIImage(systemName: "mappin.and.ellipse"), for: .normal)
-        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .semibold)]
-        let buttonTitle = NSAttributedString(string: "Map", attributes: attributes)
-        transitionViewLayoutButton.setAttributedTitle(buttonTitle, for: .normal)
-        transitionViewLayoutButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 12)
-        transitionViewLayoutButton.imageView?.tintColor = .white
-        transitionViewLayoutButton.setTitleColor(.white, for: .normal)
+        transitionViewLayoutButton.addTarget(self, action: #selector(didTapBottomButton), for: .touchUpInside)
+    }
+
+    @objc func didTapBottomButton() {
+        router.toMapViewController()
     }
 
 }

@@ -13,9 +13,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let rootViewController: RestaurantListViewController = {
             let viewController = RestaurantListViewController()
+            let router = RestaurantListRouter(viewController: viewController)
             let model = RestaurantListModel()
             let presenter = RestaurantListPresenter(model: model, view: viewController)
             viewController.presenter = presenter
+            viewController.router = router
             return viewController
         }()
 

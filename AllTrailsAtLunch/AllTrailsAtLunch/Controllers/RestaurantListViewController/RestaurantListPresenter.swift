@@ -18,14 +18,14 @@ class RestaurantListPresenter: NSObject, RestaurantListPresenterType {
         self.view = view
         super.init()
 
-        self.model.reloadRestaurantData {
-            [weak self] in
-            guard let strongSelf = self else {
-                print("self was deallocated before restaurant results were returned -- RestaurantList init")
-                return
-            }
-            strongSelf.view.reloadData()
-        }
+//        self.model.reloadRestaurantData {
+//            [weak self] in
+//            guard let strongSelf = self else {
+//                print("self was deallocated before restaurant results were returned -- RestaurantList init")
+//                return
+//            }
+//            strongSelf.view.reloadData()
+//        }
     }
 
 }
