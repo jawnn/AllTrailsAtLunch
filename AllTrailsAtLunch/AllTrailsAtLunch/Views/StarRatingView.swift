@@ -13,7 +13,6 @@ class StarRatingView: UIView {
 
     let reviewQuantityLabel: UILabel = {
         let label = UILabel(frame: .zero)
-        label.text = "(135)"
         label.textColor = .systemGray
         label.font = .systemFont(ofSize: 12, weight: .light)
         return label
@@ -27,6 +26,19 @@ class StarRatingView: UIView {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    func populateStackView(rating: Float, ratingQuantity: UInt) {
+        let roundedRating = Int(rating.rounded())
+
+        for index in 0..<roundedRating {
+            if let starView = stackView.arrangedSubviews[index] as? UIButton {
+                starView.imageView?.tintColor = .systemYellow
+            }
+        }
+        if let quantityLabel = stackView.arrangedSubviews.last as? UILabel {
+            quantityLabel.text = "(\(ratingQuantity))"
+        }
     }
 
     private func configureStackView() {
@@ -44,7 +56,7 @@ class StarRatingView: UIView {
     private func layoutStackViewSubviews() {
         for _ in 1...5 {
             let button = UIButton(frame: .zero)
-            button.imageView?.tintColor = .systemYellow
+            button.imageView?.tintColor = .systemGray
             button.setImage(UIImage(systemName: "star.fill"), for: .normal)
             stackView.addArrangedSubview(button)
         }
