@@ -7,8 +7,6 @@ class MapViewController: UIViewController {
     private weak var mapView: GMSMapView!
     private weak var transitionViewLayoutButton: TransitionViewLayoutButton!
 
-    var router: MapViewRouterType!
-
     override func loadView() {
         super.loadView()
         let headerView = AllTrailsHeaderView(frame: .zero)
