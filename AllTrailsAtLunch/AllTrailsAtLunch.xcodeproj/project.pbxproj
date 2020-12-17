@@ -22,6 +22,9 @@
 		D26B5AA9258976260089C8DE /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D26B5AA8258976250089C8DE /* Colors.xcassets */; };
 		D26B5AAD25897AFB0089C8DE /* AllTrailsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26B5AAC25897AFB0089C8DE /* AllTrailsHeaderView.swift */; };
 		D26B5AB025897F3F0089C8DE /* PaddedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26B5AAF25897F3E0089C8DE /* PaddedTextField.swift */; };
+		D2A20599258C038C007BC8C5 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A20598258C038C007BC8C5 /* MapViewController.swift */; };
+		D2A205A1258C0689007BC8C5 /* RestaurantListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A205A0258C0689007BC8C5 /* RestaurantListRouter.swift */; };
+		D2A205A5258C0901007BC8C5 /* TransitionViewLayoutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A205A4258C0901007BC8C5 /* TransitionViewLayoutButton.swift */; };
 		D2E6B1B8258ADEA200F0AC9B /* RestaurantInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E6B1B7258ADEA200F0AC9B /* RestaurantInteractor.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +48,9 @@
 		D26B5AA8258976250089C8DE /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		D26B5AAC25897AFB0089C8DE /* AllTrailsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTrailsHeaderView.swift; sourceTree = "<group>"; };
 		D26B5AAF25897F3E0089C8DE /* PaddedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddedTextField.swift; sourceTree = "<group>"; };
+		D2A20598258C038C007BC8C5 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		D2A205A0258C0689007BC8C5 /* RestaurantListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListRouter.swift; sourceTree = "<group>"; };
+		D2A205A4258C0901007BC8C5 /* TransitionViewLayoutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionViewLayoutButton.swift; sourceTree = "<group>"; };
 		D2E6B1B7258ADEA200F0AC9B /* RestaurantInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -132,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				D26B5A9E258974770089C8DE /* RestaurantListViewController */,
+				D2A20597258C035D007BC8C5 /* MapViewController */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -142,6 +149,7 @@
 				D26B5A9F258974950089C8DE /* RestaurantListViewController.swift */,
 				D22E1B92258A995B006941C4 /* RestaurantListPresenter.swift */,
 				D2624F2F258BE52300281D9F /* RestaurantListModel.swift */,
+				D2A205A0258C0689007BC8C5 /* RestaurantListRouter.swift */,
 				D22E1B82258A8AA8006941C4 /* Cells */,
 			);
 			path = RestaurantListViewController;
@@ -161,6 +169,7 @@
 				D26B5AAC25897AFB0089C8DE /* AllTrailsHeaderView.swift */,
 				D26B5AAF25897F3E0089C8DE /* PaddedTextField.swift */,
 				D22E1B87258A8E47006941C4 /* StarRatingView.swift */,
+				D2A205A4258C0901007BC8C5 /* TransitionViewLayoutButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -172,6 +181,14 @@
 				D26B5AA8258976250089C8DE /* Colors.xcassets */,
 			);
 			path = Media;
+			sourceTree = "<group>";
+		};
+		D2A20597258C035D007BC8C5 /* MapViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D2A20598258C038C007BC8C5 /* MapViewController.swift */,
+			);
+			path = MapViewController;
 			sourceTree = "<group>";
 		};
 		D2E6B1B6258ADE7B00F0AC9B /* Interactors */ = {
@@ -298,10 +315,13 @@
 			files = (
 				D2624F2D258BE2B500281D9F /* Restaurant.swift in Sources */,
 				D22E1B88258A8E47006941C4 /* StarRatingView.swift in Sources */,
+				D2A205A5258C0901007BC8C5 /* TransitionViewLayoutButton.swift in Sources */,
 				D2624F30258BE52300281D9F /* RestaurantListModel.swift in Sources */,
+				D2A205A1258C0689007BC8C5 /* RestaurantListRouter.swift in Sources */,
 				D26B5AAD25897AFB0089C8DE /* AllTrailsHeaderView.swift in Sources */,
 				D22E1B8C258A91A7006941C4 /* UIView+Extensions.swift in Sources */,
 				D22E1B84258A8AF4006941C4 /* RestaurantTableCell.swift in Sources */,
+				D2A20599258C038C007BC8C5 /* MapViewController.swift in Sources */,
 				D26B5AB025897F3F0089C8DE /* PaddedTextField.swift in Sources */,
 				D2E6B1B8258ADEA200F0AC9B /* RestaurantInteractor.swift in Sources */,
 				D26B5A86258974440089C8DE /* AppDelegate.swift in Sources */,
