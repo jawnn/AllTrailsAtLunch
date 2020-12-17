@@ -14,8 +14,6 @@ class RestaurantListRouter: RestaurantListRouterType {
 
     func toMapViewController() {
         let destinationViewController = MapViewController()
-        let destinationRouter = MapViewRouter(viewController: destinationViewController)
-        destinationViewController.router = destinationRouter
         destinationViewController.modalPresentationStyle = .fullScreen
         viewController.present(destinationViewController, animated: false)
     }
