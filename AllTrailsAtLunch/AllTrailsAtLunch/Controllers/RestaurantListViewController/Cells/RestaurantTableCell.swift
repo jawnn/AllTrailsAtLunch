@@ -43,7 +43,6 @@ class RestaurantTableCell: UITableViewCell {
 
     let detailsLabel: UILabel = {
         let label = UILabel(frame: .zero)
-        label.text = "$$$ - Supporting Text"
         label.textColor = .systemGray
         label.font = UIFont.systemFont(ofSize: 12, weight: .light)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -105,6 +104,7 @@ class RestaurantTableCell: UITableViewCell {
 
             detailsLabel.topAnchor.constraint(equalTo: ratingView.bottomAnchor, constant: 4),
             detailsLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+            detailsLabel.trailingAnchor.constraint(lessThanOrEqualTo: backgroundColorCellView.trailingAnchor, constant:  -12),
             detailsLabel.bottomAnchor.constraint(equalTo: restaurantImage.bottomAnchor)
 
         ])

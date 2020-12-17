@@ -42,6 +42,10 @@ extension RestaurantListPresenter {
         }
         let restaurant = model.restaurants[indexPath.row]
         cell.titleLabel.text = restaurant.name
+        cell.ratingView.populateStackView(rating: restaurant.rating, ratingQuantity: restaurant.userRatingsTotal)
+        let restaurantDetailText = restaurant.formattedAddress
+        let priceLevel = PriceLevel(rawValue: restaurant.priceLevel) ?? .free
+        cell.detailsLabel.text = priceLevel == .free ? restaurantDetailText : "\(priceLevel.dollarAmount) * \(restaurantDetailText)"
         return cell
     }
 }
