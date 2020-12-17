@@ -1,4 +1,5 @@
 import UIKit
+import GooglePlaces
 
 class RestaurantListViewController: UIViewController {
 
@@ -6,6 +7,7 @@ class RestaurantListViewController: UIViewController {
     private weak var tableView: UITableView!
     private weak var transitionViewLayoutButton: UIButton!
 
+    let locationManager = CLLocationManager()
     var presenter: RestaurantListPresenterType!
 
     override func loadView() {
@@ -13,7 +15,7 @@ class RestaurantListViewController: UIViewController {
 
         let headerView = AllTrailsHeaderView(frame: .zero)
         view.addSubview(headerView)
-      
+
         let tableView = UITableView(frame: .zero)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
@@ -26,7 +28,7 @@ class RestaurantListViewController: UIViewController {
             headerView.topAnchor.constraint(equalTo: view.topAnchor),
             headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-          
+
             tableView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 12),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12),
@@ -49,6 +51,7 @@ class RestaurantListViewController: UIViewController {
         view.backgroundColor = UIColor(named: "rootBackgroundGray")
         configureRestaurantTableView()
         configureBottomButton()
+        locationManager.requestWhenInUseAuthorization()
     }
 
     private func configureRestaurantTableView() {
@@ -78,5 +81,7 @@ extension RestaurantListViewController: UITableViewDelegate {
 }
 
 extension RestaurantListViewController: RestaurantListViewType {
-    
+    func reloadData() {
+        tableView.reloadData()
+    }
 }
