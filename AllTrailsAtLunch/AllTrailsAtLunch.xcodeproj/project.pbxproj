@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F1099F29244752E8F94D9F5 /* Pods_AllTrailsAtLunch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDC943153FAF3827406C3798 /* Pods_AllTrailsAtLunch.framework */; };
 		D22E1B84258A8AF4006941C4 /* RestaurantTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22E1B83258A8AF4006941C4 /* RestaurantTableCell.swift */; };
 		D22E1B88258A8E47006941C4 /* StarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22E1B87258A8E47006941C4 /* StarRatingView.swift */; };
 		D22E1B8C258A91A7006941C4 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22E1B8B258A91A7006941C4 /* UIView+Extensions.swift */; };
@@ -22,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2EE31D31CCA0FD3E3A748E6B /* Pods-AllTrailsAtLunch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AllTrailsAtLunch.release.xcconfig"; path = "Target Support Files/Pods-AllTrailsAtLunch/Pods-AllTrailsAtLunch.release.xcconfig"; sourceTree = "<group>"; };
+		B9D83F0FD317F0893C19E953 /* Pods-AllTrailsAtLunch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AllTrailsAtLunch.debug.xcconfig"; path = "Target Support Files/Pods-AllTrailsAtLunch/Pods-AllTrailsAtLunch.debug.xcconfig"; sourceTree = "<group>"; };
+		BDC943153FAF3827406C3798 /* Pods_AllTrailsAtLunch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AllTrailsAtLunch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D22E1B83258A8AF4006941C4 /* RestaurantTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableCell.swift; sourceTree = "<group>"; };
 		D22E1B87258A8E47006941C4 /* StarRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRatingView.swift; sourceTree = "<group>"; };
 		D22E1B8B258A91A7006941C4 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
@@ -43,12 +47,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F1099F29244752E8F94D9F5 /* Pods_AllTrailsAtLunch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A5124424C7FB2A3FA73B0698 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BDC943153FAF3827406C3798 /* Pods_AllTrailsAtLunch.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B37AE81D17FA40B26536168D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B9D83F0FD317F0893C19E953 /* Pods-AllTrailsAtLunch.debug.xcconfig */,
+				2EE31D31CCA0FD3E3A748E6B /* Pods-AllTrailsAtLunch.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		D22E1B82258A8AA8006941C4 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +93,8 @@
 			children = (
 				D26B5A84258974440089C8DE /* AllTrailsAtLunch */,
 				D26B5A83258974440089C8DE /* Products */,
+				B37AE81D17FA40B26536168D /* Pods */,
+				A5124424C7FB2A3FA73B0698 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -148,9 +173,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D26B5A96258974470089C8DE /* Build configuration list for PBXNativeTarget "AllTrailsAtLunch" */;
 			buildPhases = (
+				CF7543106B5C67F69288FB51 /* [CP] Check Pods Manifest.lock */,
 				D26B5A7E258974440089C8DE /* Sources */,
 				D26B5A7F258974440089C8DE /* Frameworks */,
 				D26B5A80258974440089C8DE /* Resources */,
+				9C606E64A655724889FF74AF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -205,6 +232,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9C606E64A655724889FF74AF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AllTrailsAtLunch/Pods-AllTrailsAtLunch-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AllTrailsAtLunch/Pods-AllTrailsAtLunch-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AllTrailsAtLunch/Pods-AllTrailsAtLunch-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CF7543106B5C67F69288FB51 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AllTrailsAtLunch-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D26B5A7E258974440089C8DE /* Sources */ = {
@@ -355,6 +424,7 @@
 		};
 		D26B5A97258974470089C8DE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B9D83F0FD317F0893C19E953 /* Pods-AllTrailsAtLunch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -374,6 +444,7 @@
 		};
 		D26B5A98258974470089C8DE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2EE31D31CCA0FD3E3A748E6B /* Pods-AllTrailsAtLunch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
