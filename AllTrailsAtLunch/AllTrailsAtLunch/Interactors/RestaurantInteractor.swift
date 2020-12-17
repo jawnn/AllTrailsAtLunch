@@ -2,28 +2,34 @@ import Foundation
 import GooglePlaces
 
 protocol RestaurantInteractorType {
-
+    func fetchNearByRestaurantsFromCurrentLocation(completionHandler: @escaping ([Restaurant]?, Error?) -> Void)
 }
 
 class RestaurantInteractor: RestaurantInteractorType {
     private var placesClient = GMSPlacesClient.shared()
 
-    func fetchNearByRestaurantsFromCurrentLocation() {
-        let fields: GMSPlaceField = GMSPlaceField(arrayLiteral: .name, .types)
+    func fetchNearByRestaurantsFromCurrentLocation(completionHandler: @escaping ([Restaurant]?, Error?) -> Void) {
+        let fields: GMSPlaceField = [.name, .rating, .userRatingsTotal, .types]
         placesClient.findPlaceLikelihoodsFromCurrentLocation(withPlaceFields: fields, callback: {
-            [weak self] (placeLikelihoods, error) in
-            guard let strongSelf = self else {
-                return
-            }
-
+            (placeLikelihoods, error) in
             guard error == nil else {
-                print("Current place error: \(error?.localizedDescription)")
+                print("Current place error: \(String(describing: error?.localizedDescription))")
                 return
             }
-
             guard let places = placeLikelihoods else {
                 return
             }
+
+            var restaurants: [Restaurant] = []
+            for place in places {
+                let googlePlace = place.place
+                let restaurant = Restaurant(name: googlePlace.name, types: googlePlace.types, rating: googlePlace.rating, userRatingsTotal: googlePlace.userRatingsTotal)
+                restaurants.append(restaurant)
+            }
+            DispatchQueue.main.async {
+                completionHandler(restaurants, error)
+            }
+
         })
 
     }

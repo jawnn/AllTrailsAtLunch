@@ -8,7 +8,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        #warning("Add API Key here.")
+        #warning("Restrict API Key at turn in.")
+        GMSPlacesClient.provideAPIKey("Add API Key here.")
         return true
     }
 

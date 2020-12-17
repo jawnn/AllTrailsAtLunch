@@ -13,7 +13,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let rootViewController: RestaurantListViewController = {
             let viewController = RestaurantListViewController()
-            let presenter = RestaurantListPresenter(view: viewController)
+            let model = RestaurantListModel()
+            let presenter = RestaurantListPresenter(model: model, view: viewController)
             viewController.presenter = presenter
             return viewController
         }()

@@ -29,7 +29,6 @@ class RestaurantTableCell: UITableViewCell {
 
     let titleLabel: UILabel = {
         let label = UILabel(frame: .zero)
-        label.text = "Restaurant Name"
         label.textColor = .darkGray
         label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
