@@ -3,6 +3,7 @@
 Missing features:
 - Filtering out the results into Restaurants
 - Populating the MapView with pins with [Results].coordinates
+- Populate Restaurant Image
 - Search of all kind (name, type)
 
 Notes:
