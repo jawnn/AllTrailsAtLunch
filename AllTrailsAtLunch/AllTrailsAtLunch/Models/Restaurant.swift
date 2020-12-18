@@ -1,3 +1,5 @@
+import GooglePlaces
+
 enum PriceLevel: Int {
     case free
     case inexpensive
@@ -28,13 +30,15 @@ class Restaurant {
     let rating: Float
     let priceLevel: Int
     let userRatingsTotal: UInt
+    let photos: [GMSPlacePhotoMetadata]
 
-    init(name: String?, formattedAddress: String?, types: [String]?, rating: Float, userRatingsTotal: UInt, priceLevel: Int) {
+    init(name: String?, formattedAddress: String?, types: [String]?, rating: Float, userRatingsTotal: UInt, priceLevel: Int, photos: [GMSPlacePhotoMetadata]?) {
         self.name = name ?? "n/a"
         self.formattedAddress = formattedAddress ?? "n/a"
         self.types = types ?? []
         self.rating = rating
         self.userRatingsTotal = userRatingsTotal
         self.priceLevel = priceLevel
+        self.photos = photos ?? []
     }
 }
