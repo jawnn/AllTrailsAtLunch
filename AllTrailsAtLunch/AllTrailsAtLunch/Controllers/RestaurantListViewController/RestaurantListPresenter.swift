@@ -1,7 +1,7 @@
 import UIKit
 
 protocol RestaurantListPresenterType: UITableViewDataSource {
-
+    func presentFilterButtonAlertController() -> UIAlertController
 }
 
 protocol RestaurantListViewType {
@@ -18,14 +18,34 @@ class RestaurantListPresenter: NSObject, RestaurantListPresenterType {
         self.view = view
         super.init()
 
-//        self.model.reloadRestaurantData {
-//            [weak self] in
-//            guard let strongSelf = self else {
-//                print("self was deallocated before restaurant results were returned -- RestaurantList init")
-//                return
-//            }
-//            strongSelf.view.reloadData()
-//        }
+        self.model.reloadRestaurantData {
+            [weak self] in
+            guard let strongSelf = self else {
+                print("self was deallocated before restaurant results were returned -- RestaurantList init")
+                return
+            }
+            strongSelf.view.reloadData()
+        }
+    }
+
+    func presentFilterButtonAlertController() -> UIAlertController {
+        let alertController = UIAlertController(title: "Alert Title", message: "Alert Message", preferredStyle: .actionSheet)
+        alertController.addAction(
+            UIAlertAction(title: "Ratings High to Low", style: .default, handler: {
+                [weak self] _ in
+                self?.model.restaurants.sort(by: { $0.rating > $1.rating})
+                self?.view.reloadData()
+            })
+        )
+        alertController.addAction(
+            UIAlertAction(title: "Ratings Low to High", style: .default, handler: {
+                [weak self] _ in
+                self?.model.restaurants.sort(by: { $0.rating < $1.rating})
+                self?.view.reloadData()
+            })
+        )
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        return alertController
     }
 
 }

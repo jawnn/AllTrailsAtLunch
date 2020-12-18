@@ -4,7 +4,7 @@ class StarRatingView: UIView {
 
     let stackView: UIStackView = {
         let stackView = UIStackView(frame: .zero)
-        stackView.spacing = 4
+        stackView.spacing = 0
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -31,14 +31,16 @@ class StarRatingView: UIView {
     func populateStackView(rating: Float, ratingQuantity: UInt) {
         let roundedRating = Int(rating.rounded())
 
-        for index in 0..<roundedRating {
-            if let starView = stackView.arrangedSubviews[index] as? UIButton {
-                starView.imageView?.tintColor = .systemYellow
+        for (index, subView) in stackView.arrangedSubviews.enumerated() {
+            if let starView = subView as? UIImageView {
+                starView.image = UIImage(systemName: "star.fill")
+                starView.tintColor = (index + 1) <= roundedRating ? .systemYellow : .systemGray
+            }
+            if let quantityLabel = subView as? UILabel {
+                quantityLabel.text = "(\(ratingQuantity))"
             }
         }
-        if let quantityLabel = stackView.arrangedSubviews.last as? UILabel {
-            quantityLabel.text = "(\(ratingQuantity))"
-        }
+
     }
 
     private func configureStackView() {
@@ -55,12 +57,26 @@ class StarRatingView: UIView {
 
     private func layoutStackViewSubviews() {
         for _ in 1...5 {
-            let button = UIButton(frame: .zero)
-            button.imageView?.tintColor = .systemGray
-            button.setImage(UIImage(systemName: "star.fill"), for: .normal)
-            stackView.addArrangedSubview(button)
+            let imageView = UIImageView(frame: .zero)
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+            imageView.tintColor = .systemGray
+            imageView.image = UIImage(systemName: "star.fill")
+            imageView.heightAnchor.constraint(equalToConstant: 20).isActive = true
+            imageView.widthAnchor.constraint(equalToConstant: 20).isActive = true
+            stackView.addArrangedSubview(imageView)
         }
         stackView.addArrangedSubview(reviewQuantityLabel)
+    }
+
+    func resetStackView() {
+        for subView in stackView.arrangedSubviews {
+            if let imageView = subView as? UIImageView {
+                imageView.image = nil
+            }
+            if let label = subView as? UILabel {
+                label.text = ""
+            }
+        }
     }
 
 }

@@ -98,6 +98,7 @@ class RestaurantTableCell: UITableViewCell {
             titleLabel.leadingAnchor.constraint(equalTo: restaurantImage.trailingAnchor, constant: 8),
             titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: favoriteButton.leadingAnchor, constant: -12),
 
+            ratingView.widthAnchor.constraint(equalToConstant: 200),
             ratingView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4),
             ratingView.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             ratingView.centerYAnchor.constraint(equalTo: restaurantImage.centerYAnchor),
@@ -108,6 +109,14 @@ class RestaurantTableCell: UITableViewCell {
             detailsLabel.bottomAnchor.constraint(equalTo: restaurantImage.bottomAnchor)
 
         ])
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        titleLabel.text = ""
+        detailsLabel.text = ""
+        restaurantImage.image = nil
+        ratingView.resetStackView()
     }
 
 }
