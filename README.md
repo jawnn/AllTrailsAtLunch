@@ -1,7 +1,7 @@
 # AllTrailsAtLunch
 
 Missing features:
-- Filtering out the searches into Restaurants
+- Filtering out the results into Restaurants
 - Populating the MapView with pins with [Results].coordinates
 - Search of all kind (name, type)
 
