@@ -22,7 +22,6 @@ class RestaurantTableCell: UITableViewCell {
 
     let restaurantImage: UIImageView = {
         let imageView = UIImageView(frame: .zero)
-        imageView.image = .checkmark
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
