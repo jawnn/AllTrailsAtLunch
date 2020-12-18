@@ -49,10 +49,11 @@ class RestaurantListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        headerView.delegate = self
         view.backgroundColor = UIColor(named: "rootBackgroundGray")
+        locationManager.requestWhenInUseAuthorization()
         configureRestaurantTableView()
         configureBottomButton()
-        locationManager.requestWhenInUseAuthorization()
     }
 
     private func configureRestaurantTableView() {
@@ -80,5 +81,12 @@ extension RestaurantListViewController: UITableViewDelegate {
 extension RestaurantListViewController: RestaurantListViewType {
     func reloadData() {
         tableView.reloadData()
+    }
+}
+
+extension RestaurantListViewController: AllTrailsHeaderViewDelegate {
+    func triggerFilterRestaurantsAlertController() {
+        let filterAlertController = presenter.presentFilterButtonAlertController()
+        present(filterAlertController, animated: true)
     }
 }

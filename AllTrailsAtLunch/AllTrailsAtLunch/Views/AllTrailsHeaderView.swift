@@ -1,6 +1,12 @@
 import UIKit
 
+protocol AllTrailsHeaderViewDelegate: class {
+    func triggerFilterRestaurantsAlertController()
+}
+
 class AllTrailsHeaderView: UIView {
+
+    weak var delegate: AllTrailsHeaderViewDelegate?
 
     let topStackView: UIStackView = {
         let stackView = UIStackView(frame: .zero)
@@ -44,6 +50,8 @@ class AllTrailsHeaderView: UIView {
         button.layer.borderColor = UIColor.systemGray4.cgColor
         button.setTitleColor(.systemGray, for: .normal)
         button.setAttributedTitle(buttonTitle, for: .normal)
+
+        button.addTarget(self, action: #selector(didTapFilterButton), for: .touchUpInside)
         return button
     }()
 
@@ -114,9 +122,14 @@ class AllTrailsHeaderView: UIView {
         bottomStackView.addArrangedSubview(searchTextField)
     }
 
+    // MARK: - Selector Fucntions
+
     @objc func tappedSearch() {
 
     }
 
+    @objc func didTapFilterButton() {
+        delegate?.triggerFilterRestaurantsAlertController()
+    }
 
 }
